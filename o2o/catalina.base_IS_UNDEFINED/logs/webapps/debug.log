@@ -1,0 +1,15 @@
+2018-10-12 14:24:23.920 [main] DEBUG com.o2o.dao.AreaDao.queryArea - ==>  Preparing: SELECT * FROM tb_area ORDER BY priority DESC 
+2018-10-12 14:24:24.156 [main] DEBUG com.o2o.dao.AreaDao.queryArea - ==> Parameters: 
+2018-10-12 14:24:24.339 [main] DEBUG com.o2o.dao.AreaDao.queryArea - <==      Total: 3
+2018-10-12 14:25:36.651 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT * FROM tb_shop_category ORDER BY priority DESC 
+2018-10-12 14:25:36.685 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
+2018-10-12 14:25:36.702 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 2
+2018-10-12 14:25:55.162 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT * FROM tb_shop_category ORDER BY priority DESC 
+2018-10-12 14:25:55.196 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
+2018-10-12 14:25:55.212 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 2
+2018-10-12 14:29:43.799 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT * FROM tb_shop_category ORDER BY priority DESC 
+2018-10-12 14:29:43.832 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
+2018-10-12 14:29:43.848 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 2
+2018-10-12 14:29:43.859 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT * FROM tb_shop_category WHERE parent_id = ? ORDER BY priority DESC 
+2018-10-12 14:29:43.859 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 1(Long)
+2018-10-12 14:29:43.904 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 1

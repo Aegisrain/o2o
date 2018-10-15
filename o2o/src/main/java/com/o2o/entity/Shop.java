@@ -18,7 +18,7 @@ public class Shop {
     //电话
     private String phone;
     //商品图片
-    private String shopImd;
+    private String shopImg;
     //权重
     private Integer priority;
     //创建时间
@@ -30,7 +30,7 @@ public class Shop {
     //建议（管理员给店家）
     private String advice;
     private Area area;
-    private PersonInfo personInfo;
+    private PersonInfo owner;
     private ShopCategory shopCategory;
 
     public Long getShopId() {
@@ -73,12 +73,12 @@ public class Shop {
         this.phone = phone;
     }
 
-    public String getShopImd() {
-        return shopImd;
+    public String getShopImg() {
+        return shopImg;
     }
 
-    public void setShopImd(String shopImd) {
-        this.shopImd = shopImd;
+    public void setShopImg(String shopImg) {
+        this.shopImg = shopImg;
     }
 
     public Integer getPriority() {
@@ -129,12 +129,12 @@ public class Shop {
         this.area = area;
     }
 
-    public PersonInfo getPersonInfo() {
-        return personInfo;
+    public PersonInfo getOwner() {
+        return owner;
     }
 
-    public void setPersonInfo(PersonInfo personInfo) {
-        this.personInfo = personInfo;
+    public void setOwner(PersonInfo owner) {
+        this.owner = owner;
     }
 
     public ShopCategory getShopCategory() {
