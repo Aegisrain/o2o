@@ -1,5 +1,6 @@
 package com.o2o.util;
 
+import ch.qos.logback.core.util.FileUtil;
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
@@ -42,6 +43,20 @@ public class ImageUtil {
                     .outputQuality(0.8f).toFile(dest);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        return relativeAddr;
+    }
+
+    public static String generateNormalImg(CommonsMultipartFile thumbnail, String targetAddr) {
+        String realFileName = getRandomFileName();
+        String extension = getFileExtension(thumbnail);
+        makeDirPath(targetAddr);
+        String relativeAddr = targetAddr + realFileName + extension;
+        File dest = new File(PathUtil.getImgBasePath() + relativeAddr);
+        try {
+            Thumbnails.of(thumbnail.getInputStream()).size(337, 640).outputQuality(0.5f).toFile(dest);
+        } catch (IOException e) {
+            throw new RuntimeException("创建缩略图失败：" + e.toString());
         }
         return relativeAddr;
     }

@@ -118,6 +118,14 @@ public class ShopServiceImpl implements ShopService {
         }
     }
 
+    /**
+     * 得到店铺列表
+     *
+     * @param shopCondition
+     * @param pageIndex
+     * @param pageSize
+     * @return
+     */
     @Override
     public ShopExecution getShopList(Shop shopCondition, int pageIndex, int pageSize) {
         //使用工具类转换rowIndex

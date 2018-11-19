@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * @Auther: yzy
  * @Date: 2018/11/18 14:10
- * @Description:
+ * @Description:封装商品类别信息以及状态信息
  */
 public class ProductCategoryExecution {
     //结果状态
