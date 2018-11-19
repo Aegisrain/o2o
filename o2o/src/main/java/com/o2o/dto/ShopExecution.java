@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * @Auther: yzy
  * @Date: 2018/10/11 14:32
- * @Description:
+ * @Description:封装店铺信息以及状态信息
  */
 public class ShopExecution {
     //结果状态

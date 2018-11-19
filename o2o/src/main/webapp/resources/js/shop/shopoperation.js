@@ -2,12 +2,92 @@
  *
  */
 $(function () {
+    var shopId = getQueryString('shopId');
+    var isEdit = shopId ? true : false;
     var initUrl = '/o2o/shopadmin/getshopinitinfo';
     var registerShopUrl = '/o2o/shopadmin/registershop';
-    alert(initUrl);
-    getShopInitInfp();
+    var shopInfoUrl = '/o2o/shopadmin/getshopbyid?shopId=' + shopId;
+    var editShopUrl = '/o2o/shopadmin/modifyshop';
+    if (!isEdit) {
+        getShopInitInfo();
+    } else {
+        getShopInfo(shopId);
+    }
 
-    function getShopInitInfp() {
+
+    function getShopInfo(shopId) {
+        $.getJSON(shopInfoUrl, function (data) {
+            if (data.success) {
+                var shop = data.shop;
+                $('#shop-name').val(shop.shopName);
+                $('#shop-phone').val(shop.phone);
+                $('#shop-addr').val(shop.shopAddr);
+                $('#shop-desc').val(shop.shopDesc);
+                var shopCategory = '<option data-id="'
+                    + shop.shopCategory.shopCategoryId + '" selected>'
+                    + shop.shopCategory.shopCategoryName + ' </option>';
+                var tempAreaHtml = '';
+                data.areaList.map(function (item, index) {
+                    tempAreaHtml += '<option data-id="' + item.areaId + '">'
+                                    + item.areaName + '</option>';
+                });
+                $('#shop-category').html(shopCategory);
+                $('#shop-category').attr('disabled', 'disabled');
+                $('#area').html(tempAreaHtml);
+                $("#area option[data-id='" + shop.area.areaId + "']").attr("selected", "selected");
+            }
+        });
+
+        //提交数据
+        $('#submit').click(function () {
+            var shop = {};
+            if(isEdit) {
+                shop.shopId = shopId;
+            }
+            shop.shopName = $('#shop-name').val();
+            shop.shopAddr = $('#shop-addr').val();
+            shop.phone = $('#shop-phone').val();
+            shop.shopDesc = $('#shop-desc').val();
+            shop.shopCategory = {
+                shopCategoryId: $('#shop-category').find('option').not(function () {
+                    return !this.selected;
+                }).data('id')
+            };
+            shop.area = {
+                areaId: $('#area').find('option').not(function () {
+                    return !this.selected;
+                }).data('id')
+            };
+            var shopImg = $('#shop-img')[0].files[0];
+            var formData = new FormData();
+            formData.append('shopImg', shopImg);
+            formData.append('shopStr', JSON.stringify(shop));
+            var verfiyCodeActual = $('#j_kaptcha').val();
+            if (!verfiyCodeActual) {
+                $.toast('请输入验证码！');
+                return;
+            }
+            formData.append('verfiyCodeActual', verfiyCodeActual);
+            $.ajax({
+                url: (isEdit?editShopUrl:registerShopUrl),
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                cache: false,
+                success: function (data) {
+                    if (data.success) {
+                        $.toast('提交成功!');
+                    } else {
+                        $.toast('提交失败!' + data.errMsg);
+                    }
+                    $('kaptcha_img').click();
+                }
+            });
+        });
+    }
+
+    function getShopInitInfo() {
         //向商铺表单的‘商铺列表’和‘所属区域’添加数据
         $.getJSON(initUrl, function (data) {
             if (data.success) {
@@ -31,9 +111,12 @@ $(function () {
         //提交数据
         $('#submit').click(function () {
             var shop = {};
+            if(isEdit) {
+                shop.shopId = shopId;
+            }
             shop.shopName = $('#shop-name').val();
             shop.shopAddr = $('#shop-addr').val();
-            shop.shopPhone = $('#shop-phone').val();
+            shop.phone = $('#shop-phone').val();
             shop.shopDesc = $('#shop-desc').val();
             shop.shopCategory = {
                 shopCategoryId: $('#shop-category').find('option').not(function () {
@@ -41,7 +124,7 @@ $(function () {
                 }).data('id')
             };
             shop.area = {
-                areaID: $('#area').find('option').not(function () {
+                areaId: $('#area').find('option').not(function () {
                     return !this.selected;
                 }).data('id')
             };
@@ -49,12 +132,18 @@ $(function () {
             var formData = new FormData();
             formData.append('shopImg', shopImg);
             formData.append('shopStr', JSON.stringify(shop));
+            var verfiyCodeActual = $('#j_kaptcha').val();
+            if (!verfiyCodeActual) {
+                $.toast('请输入验证码！');
+                return;
+            }
+            formData.append('verfiyCodeActual', verfiyCodeActual);
             $.ajax({
-                url: registerShopUrl,
+                url: (isEdit?editShopUrl:registerShopUrl),
                 type: 'POST',
                 data: formData,
                 contentType: false,
-                proceesData: false,
+                processData: false,
                 cache: false,
                 success: function (data) {
                     if (data.success) {
@@ -62,7 +151,7 @@ $(function () {
                     } else {
                         $.toast('提交失败!' + data.errMsg);
                     }
-
+                    $('kaptcha_img').click();
                 }
             });
         });

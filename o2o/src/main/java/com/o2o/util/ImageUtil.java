@@ -84,4 +84,28 @@ public class ImageUtil {
         String nowTimeStr = sDateFormat.format(new Date());
         return nowTimeStr + randomNum;
     }
+
+    /**
+     * 根据文件路径或目录路径删除
+     * 1.首先判断storePath是文件还是目录
+     * 2.如果是文件路径则删除该文件
+     * 3.如果是目录路径则删除该路径下的所有文件
+     *
+     * @param storePath
+     */
+    public static void deleteFileOrPath(String storePath) {
+        File fileOrPath = new File(PathUtil.getImgBasePath() + storePath);
+        if (fileOrPath.exists()) {
+            //如果是目录则删除整个目录的文件
+            if (fileOrPath.isDirectory()) {
+                File files[] = fileOrPath.listFiles();
+                //递归删除文件
+                for (int i = 0; i < files.length; i++) {
+                    files[i].delete();
+                }
+            }
+            //如果是文件则直接删除,如果是目录则先删除文件最后删除该目录
+            fileOrPath.delete();
+        }
+    }
 }

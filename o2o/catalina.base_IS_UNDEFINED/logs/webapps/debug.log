@@ -1,15 +1,13 @@
-2018-10-12 14:24:23.920 [main] DEBUG com.o2o.dao.AreaDao.queryArea - ==>  Preparing: SELECT * FROM tb_area ORDER BY priority DESC 
-2018-10-12 14:24:24.156 [main] DEBUG com.o2o.dao.AreaDao.queryArea - ==> Parameters: 
-2018-10-12 14:24:24.339 [main] DEBUG com.o2o.dao.AreaDao.queryArea - <==      Total: 3
-2018-10-12 14:25:36.651 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT * FROM tb_shop_category ORDER BY priority DESC 
-2018-10-12 14:25:36.685 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
-2018-10-12 14:25:36.702 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 2
-2018-10-12 14:25:55.162 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT * FROM tb_shop_category ORDER BY priority DESC 
-2018-10-12 14:25:55.196 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
-2018-10-12 14:25:55.212 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 2
-2018-10-12 14:29:43.799 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT * FROM tb_shop_category ORDER BY priority DESC 
-2018-10-12 14:29:43.832 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
-2018-10-12 14:29:43.848 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 2
-2018-10-12 14:29:43.859 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: SELECT * FROM tb_shop_category WHERE parent_id = ? ORDER BY priority DESC 
-2018-10-12 14:29:43.859 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 1(Long)
-2018-10-12 14:29:43.904 [main] DEBUG com.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 1
+2018-11-18 14:04:32.061 [main] DEBUG c.o.d.P.batchInsertProductCategory - ==>  Preparing: INSERT INTO tb_product_category(product_categort_name, priority, create_time, shop_id) VALUES ( ?, ?, ?, ? ) , ( ?, ?, ?, ? ) 
+2018-11-18 14:04:32.106 [main] DEBUG c.o.d.P.batchInsertProductCategory - ==> Parameters: test1(String), 11(Integer), 2018-11-18 14:04:31.297(Timestamp), null, test2(String), 14(Integer), 2018-11-18 14:04:31.297(Timestamp), null
+2018-11-18 14:05:10.646 [main] DEBUG c.o.d.P.batchInsertProductCategory - ==>  Preparing: INSERT INTO tb_product_category(product_categort_name, priority, create_time, shop_id) VALUES ( ?, ?, ?, ? ) , ( ?, ?, ?, ? ) 
+2018-11-18 14:05:10.683 [main] DEBUG c.o.d.P.batchInsertProductCategory - ==> Parameters: test1(String), 11(Integer), 2018-11-18 14:05:10.344(Timestamp), 2(Long), test2(String), 14(Integer), 2018-11-18 14:05:10.344(Timestamp), 2(Long)
+2018-11-18 14:05:42.410 [main] DEBUG c.o.d.P.batchInsertProductCategory - ==>  Preparing: INSERT INTO tb_product_category(product_category_name, priority, create_time, shop_id) VALUES ( ?, ?, ?, ? ) , ( ?, ?, ?, ? ) 
+2018-11-18 14:05:42.447 [main] DEBUG c.o.d.P.batchInsertProductCategory - ==> Parameters: test1(String), 11(Integer), 2018-11-18 14:05:42.022(Timestamp), 2(Long), test2(String), 14(Integer), 2018-11-18 14:05:42.022(Timestamp), 2(Long)
+2018-11-18 14:05:42.453 [main] DEBUG c.o.d.P.batchInsertProductCategory - <==    Updates: 2
+2018-11-18 14:07:43.112 [main] DEBUG c.o.d.P.batchInsertProductCategory - ==>  Preparing: INSERT INTO tb_product_category(product_category_name, priority, create_time, shop_id) VALUES ( ?, ?, ?, ? ) , ( ?, ?, ?, ? ) 
+2018-11-18 14:07:43.147 [main] DEBUG c.o.d.P.batchInsertProductCategory - ==> Parameters: test1(String), 11(Integer), 2018-11-18 14:07:42.756(Timestamp), 2(Long), test2(String), 14(Integer), 2018-11-18 14:07:42.756(Timestamp), 2(Long)
+2018-11-18 14:07:43.151 [main] DEBUG c.o.d.P.batchInsertProductCategory - <==    Updates: 2
+2018-11-18 15:53:34.403 [main] DEBUG c.o2o.dao.ProductCategoryDao.deleteProductCategory - ==>  Preparing: DELETE FROM tb_product_category WHERE product_category_id=? AND shop_id=? 
+2018-11-18 15:53:34.437 [main] DEBUG c.o2o.dao.ProductCategoryDao.deleteProductCategory - ==> Parameters: 1(Long), 1(Long)
+2018-11-18 15:53:34.440 [main] DEBUG c.o2o.dao.ProductCategoryDao.deleteProductCategory - <==    Updates: 1
