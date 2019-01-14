@@ -40,4 +40,10 @@ public class ProductImgDaoTest extends BaseTest {
         int effectNum = productImgDao.batchInsertProductImg(productImgList);
         System.out.println(effectNum);
     }
+
+    @Test
+    public void deleteProductImgById() {
+        int effectNum = productImgDao.deleteProductImgById(1l);
+        System.out.println(effectNum);
+    }
 }

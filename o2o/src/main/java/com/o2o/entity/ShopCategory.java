@@ -13,7 +13,7 @@ public class ShopCategory {
     //描述
     private String shopCategoryDesc;
     //图片
-    private String shopCateGoryImg;
+    private String shopCategoryImg;
     //权重
     private Integer priority;
     //创建时间
@@ -47,12 +47,12 @@ public class ShopCategory {
         this.shopCategoryDesc = shopCategoryDesc;
     }
 
-    public String getShopCateGoryImg() {
-        return shopCateGoryImg;
+    public String getShopCategoryImg() {
+        return shopCategoryImg;
     }
 
-    public void setShopCateGoryImg(String shopCateGoryImg) {
-        this.shopCateGoryImg = shopCateGoryImg;
+    public void setShopCategoryImg(String shopCategoryImg) {
+        this.shopCategoryImg = shopCategoryImg;
     }
 
     public Integer getPriority() {

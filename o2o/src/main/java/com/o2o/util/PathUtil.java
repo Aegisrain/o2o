@@ -18,7 +18,7 @@ public class PathUtil {
         if (os.toLowerCase().startsWith("win")) {
             basePath = "E:/image";
         } else {
-            basePath = "/home/yzy/image/";
+            basePath = "/home/yzy/image";
         }
         //转换成当前操作系统使用的分隔符
         basePath = basePath.replace("/", seperator);

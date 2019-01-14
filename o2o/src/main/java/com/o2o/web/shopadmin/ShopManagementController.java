@@ -9,7 +9,7 @@ import com.o2o.entity.ShopCategory;
 import com.o2o.enums.ShopStateEnum;
 import com.o2o.exceptions.ShopOperationException;
 import com.o2o.service.AreaService;
-import com.o2o.service.ShopCtegoryService;
+import com.o2o.service.ShopCategoryService;
 import com.o2o.service.ShopService;
 import com.o2o.util.CodeUtil;
 import com.o2o.util.HttpServletRequestUtil;
@@ -40,7 +40,7 @@ public class ShopManagementController {
     @Autowired
     private ShopService shopService;
     @Autowired
-    private ShopCtegoryService shopCategoryService;
+    private ShopCategoryService shopCategoryService;
     @Autowired
     private AreaService areaService;
 

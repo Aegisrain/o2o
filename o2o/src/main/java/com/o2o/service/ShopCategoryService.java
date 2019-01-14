@@ -9,6 +9,6 @@ import java.util.List;
  * @Date: 2018/10/12 14:30
  * @Description:
  */
-public interface ShopCtegoryService {
+public interface ShopCategoryService {
     List<ShopCategory> getShopCategoryList(ShopCategory shopCategoryCondition);
 }
